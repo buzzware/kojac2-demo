@@ -41,7 +41,8 @@
     "ember-seamless-immutable-shim": "^2.0.1",
     "ember-source": "~2.13.0",
     "ember-welcome-page": "^3.0.0",
-    "loader.js": "^4.2.3"
+    "loader.js": "^4.2.3",
+    "lodash": "^4.17.4"
   },
   "engines": {
     "node": ">= 4"
