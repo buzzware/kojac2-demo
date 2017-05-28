@@ -1,7 +1,7 @@
 export default class {
 
-	constructor() {
-	}
+	//constructor() {
+	//}
 
 	bang() {
 		console.log('bang');
