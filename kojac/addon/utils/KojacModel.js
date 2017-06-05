@@ -7,7 +7,7 @@ import bf from './BuzzFunctions';
 
 //import KojacObject from './KojacObject';
 //import Construct from 'can-construct';
-import Construct from 'npm:can-construct';
+import Construct from 'npm:can-construct-super';
 
 /**
  * Extends Kojac.Object to support typed attributes
