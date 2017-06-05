@@ -1,5 +1,6 @@
 import { module, test } from 'qunit';
 import Kojac from 'kojac/utils/Kojac';
+import KojacModel from 'kojac/utils/KojacModel';
 import Immutable from 'seamless-immutable';
 import Ember from 'ember';
 
@@ -59,7 +60,7 @@ test('defineProperty test',function(assert) {
 
 	function Sprite() {
 		// Constructor code ...
-	};
+	}
 
 	Object.defineProperty(Sprite.prototype, "y", {
 		set: function (val) {
@@ -92,4 +93,25 @@ test('defineProperty test',function(assert) {
 		"must be a number"
 	);
 	sprite.y = 10;  // no problem
+});
+
+test('KojacModel test',function(assert) {
+
+	var Thing = KojacModel.extend({
+		name: String,
+		height: KojacModel.Int
+	});
+
+	var thing = new Thing({
+		name: 'Fred',
+		size: 180
+	});
+
+	assert.strictEqual(thing.name,'Fred','should exist and be gettable');
+
+	thing = Immutable(thing);
+
+	assert.strictEqual(thing.name,'Fred','should exist and be gettable');
+
+
 });
