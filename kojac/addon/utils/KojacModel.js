@@ -5,14 +5,16 @@ import bf from './BuzzFunctions';
 //import can from 'can'
 //import can from 'npm:can';
 
-import KojacObject from './KojacObject';
+//import KojacObject from './KojacObject';
+//import Construct from 'can-construct';
+import Construct from 'npm:can-construct';
 
 /**
  * Extends Kojac.Object to support typed attributes
  * @class Kojac.Model
  * @extends Kojac.Object
  **/
-var KojacModel = KojacObject.extend({
+var KojacModel = Construct.extend({
 	/**
 	 * This method is called when inheriting a new model from Kojac.Model, and allows attributes to be defined as
 	 *   name: Class (default value is null)
@@ -49,7 +51,7 @@ var KojacModel = KojacObject.extend({
 				//this.__defaults[p] = v;
 			}
 		}
-		return prop;
+		return [prop];
 	},
 	/**
 	 * The base constructor for Kojac.Model. When creating an instance of a model, an optional hash aValues provides attribute values that override the default values
@@ -122,7 +124,7 @@ KojacModel.SimpleTypes = [KojacModel.Null,KojacModel.Int,Number,String,Boolean,D
  * @return {Class} eg. see Kojac.FieldTypes
  */
 KojacModel.getPropertyValueType = function(aValue) {
-	var t = _.typeOf(aValue);
+	var t = bf.typeOf(aValue);
 	var result;
 	switch(t) {
 		case 'number':   // determine number or int
