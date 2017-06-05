@@ -108,10 +108,18 @@ test('KojacModel test',function(assert) {
 	});
 
 	assert.strictEqual(thing.name,'Fred','should exist and be gettable');
+	thing.name = 'John';
+	assert.strictEqual(thing.name,'John','should exist and be settable');
 
 	thing = Immutable(thing);
 
-	assert.strictEqual(thing.name,'Fred','should exist and be gettable');
-
-
+	assert.strictEqual(thing.name,'John','should exist and be gettable');
+	assert.throws(
+		function() {
+			thing.name = 'Bob';
+		},
+		TypeError,
+		"can't mutate"
+	);
+	assert.strictEqual(thing.name,'John','should not change');
 });
